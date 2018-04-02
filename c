@@ -23,7 +23,7 @@ cleanup() {
     rm -rf "$tmpdir"
 
     # current cachesize
-    size="$(du --block-size=1024 -s "$tmproot" | tail -n1 | cut -f1)"
+    size="$(du -k -s "$tmproot" | tail -n1 | cut -f1)"
 
     # remove cache files until we are under the maximum cache size (C_CACHE_SIZE)
     while [[ "$size" -gt "$C_CACHE_SIZE" ]]; do
